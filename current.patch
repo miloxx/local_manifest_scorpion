@@ -1,0 +1,132 @@
+
+project device/sony/common/
+diff --git a/brcm_fmradio/libfmjni/android_fmradio_Receiver.cpp b/brcm_fmradio/libfmjni/android_fmradio_Receiver.cpp
+index 3d7e0f7..b132be7 100755
+--- a/brcm_fmradio/libfmjni/android_fmradio_Receiver.cpp
++++ b/brcm_fmradio/libfmjni/android_fmradio_Receiver.cpp
+@@ -716,6 +716,14 @@ jshort readRds(JNIEnv *env, jobject thiz)
+     return 0x0040; //Java: RDS_EVENT_LAST_RADIOTEXT
+ }
+ 
++
++jshort activeAf(JNIEnv *env, jobject thiz)
++{
++    jshort ret_freq = 0;
++    ALOGD("%s, [Not Implemented]\n", __func__);
++    return ret_freq;
++}
++
+ jint setRds(JNIEnv *env, jobject thiz, jboolean rdson)
+ {
+     int ret = 0;
+@@ -884,23 +892,25 @@ static jboolean closeDev(JNIEnv * env, jobject obj,
+     return JNI_TRUE;
+ }
+ 
++static const char *classPathNameRx = "com/android/fmradio/FmNative";
+ 
+ static JNINativeMethod gMethods[] = {
+-    {"openDev", "()Z", (void*)openDev },
+-    {"closeDev", "()Z", (void*)closeDev },
+-    {"powerUp", "(F)Z", (void*)powerUp },
+-    {"powerDown", "(I)Z", (void*)powerDown },
+-    {"tune", "(F)Z", (void*)tune },
+-    {"seek", "(FZ)F", (void*)seek },
+-    {"autoScan",  "()[S", (void*)autoScan },
+-    {"stopScan",  "()Z", (void*)stopScan },
+-    {"setRds",    "(Z)I", (void*)setRds  },
+-    {"readRds",   "()S", (void*)readRds },
+-    {"getPs",     "()[B", (void*)getPs  },
+-    {"getLrText", "()[B", (void*)getLrText},
+-    {"setMute",	"(Z)I", (void*)setMute},
+-    {"isRdsSupport",	"()I", (void*)isRdsSupport},
+-    {"switchAntenna", "(I)I", (void*)switchAntenna},
++    {"openDev", "()Z", (void*)openDev },  //1
++    {"closeDev", "()Z", (void*)closeDev }, //2
++    {"powerUp", "(F)Z", (void*)powerUp },  //3
++    {"powerDown", "(I)Z", (void*)powerDown }, //4
++    {"tune", "(F)Z", (void*)tune },          //5
++    {"seek", "(FZ)F", (void*)seek },         //6
++    {"autoScan",  "()[S", (void*)autoScan }, //7
++    {"stopScan",  "()Z", (void*)stopScan },  //8
++    {"setRds",    "(Z)I", (void*)setRds  },  //10
++    {"readRds",   "()S", (void*)readRds },  //11 will pending here for get event status
++    {"getPs",     "()[B", (void*)getPs  },  //12
++    {"getLrText", "()[B", (void*)getLrText}, //13
++    {"activeAf",  "()S", (void*)activeAf},   //14
++    {"setMute",	"(Z)I", (void*)setMute},  //15
++    {"isRdsSupport",	"()I", (void*)isRdsSupport},  //16
++    {"switchAntenna", "(I)I", (void*)switchAntenna}, //17
+ };
+ 
+ int registerAndroidFmRadioReceiver(JavaVM * vm, JNIEnv * env)
+
+project device/sony/sepolicy/
+diff --git a/init.te b/init.te
+index cf662af..e5bfca1 100644
+--- a/init.te
++++ b/init.te
+@@ -7,6 +7,6 @@ allow init persist_file:dir mounton;
+ 
+ #FM BCM
+ allow init hci_attach_dev:chr_file rw_file_perms;
+-allow init { debugfs brcm_uim_exec }:file rw_file_perms;
++allow init brcm_uim_exec:file { execute getattr read open };
+ allow init brcm_ldisc_sysfs:lnk_file { read };
+ allow init uim:process { siginh noatsecure transition rlimitinh };
+diff --git a/uim.te b/uim.te
+index 6ac283b..a039426 100644
+--- a/uim.te
++++ b/uim.te
+@@ -4,7 +4,7 @@ rw_dir_file(uim, sysfs)
+ rw_dir_file(uim, brcm_ldisc_sysfs)
+ rw_dir_file(uim, bluetooth_data_file)
+ rw_dir_file(uim, sysfs_bluetooth_writable)
+-allow uim brcm_uim_exec:file { entrypoint read execute };
++allow uim brcm_uim_exec:file { entrypoint getattr read execute };
+ allow uim hci_attach_dev:chr_file { read write ioctl open };
+ allow uim self:capability { net_admin dac_override };
+ allow uim rootfs:lnk_file getattr;
+
+project device/sony/shinano/
+diff --git a/platform.mk b/platform.mk
+index 63b1cde..3a7112d 100644
+--- a/platform.mk
++++ b/platform.mk
+@@ -81,6 +81,7 @@ PRODUCT_PACKAGES += \
+     keystore.msm8974
+ 
+ # FM
++#   FMRadio \ # Disable Radio for now, as there is no sound
+ PRODUCT_PACKAGES += \
+     FMRadio \
+     brcm-uim-sysfs \
+diff --git a/platform2.mk b/platform2.mk
+index fe6af2b..c27956b 100644
+--- a/platform2.mk
++++ b/platform2.mk
+@@ -33,3 +33,9 @@ PRODUCT_PACKAGES += \
+ 
+ PRODUCT_COPY_FILES += \
+     frameworks/native/data/etc/com.nxp.mifare.xml:system/etc/permissions/com.nxp.mifare.xml
++
++# Volume overrides
++PRODUCT_PROPERTY_OVERRIDES += \
++    ro.config.vc_call_vol_steps=10 \
++    ro.config.media_vol_steps=20
++
+
+project external/toybox/
+diff --git a/toys/posix/cp.c b/toys/posix/cp.c
+index 6e035f7..0dd63a7 100644
+--- a/toys/posix/cp.c
++++ b/toys/posix/cp.c
+@@ -315,7 +315,7 @@ int cp_node(struct dirtree *try)
+       // permission bits already correct for mknod and don't apply to symlink
+       // If we can't get a filehandle to the actual object, use racy functions
+       if (fdout == AT_FDCWD)
+-        fchownat(cfd, catch, try->st.st_uid, try->st.st_gid,
++        rc = fchownat(cfd, catch, try->st.st_uid, try->st.st_gid,
+                       AT_SYMLINK_NOFOLLOW);
+       else rc = fchown(fdout, try->st.st_uid, try->st.st_gid);
+       if (rc && !geteuid()) {
