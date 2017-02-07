@@ -25,8 +25,9 @@
   
   <!-- sony sepolicy -->
   <!-- project name="sonyxperiadev/device-sony-sepolicy" path="device/sony/sepolicy" remote="github" revision="n-mr0" / -->
-  <!-- project name="lowtraxx/device-sony-sepolicy" path="device/sony/sepolicy" remote="github" revision="cm-14.1" / -->
-  <project name="SonyLOS/android_device_sony_sepolicy" path="device/sony/sepolicy" remote="github" revision="cm-14.1" />
+  <project name="lowtraxx/device-sony-sepolicy" path="device/sony/sepolicy" remote="github" revision="cm-14.1" />
+  <!-- project name="SonyLOS/android_device_sony_sepolicy" path="device/sony/sepolicy" remote="github" revision="cm-14.1" / -->
+  <!-- project name="sonyxperiadev/device-sony-sepolicy" path="device/sony/sepolicy" remote="github" revision="n-mr0" / -->
   
   <!-- kernel 3.10 -->
   <project name="lowtraxx/kernel" path="kernel/sony/msm" remote="github" revision="android-7.1" />
@@ -50,8 +51,8 @@
   <!-- vendor -->
   <project name="lowtraxx/vendor_nxp" path="vendor/nxp" remote="github" revision="android-7.1" />
   <project name="lowtraxx/vendor_qcom" path="vendor/qcom" remote="github" revision="android-7.1" />
-  <!-- project name="lowtraxx/vendor_sony" path="vendor/sony" remote="github" revision="android-7.1" / -->
-  <project name="lowtraxx/proprietary_vendor_sony" path="vendor/sony" remote="github" revision="cm-14.1" />
+  <project name="lowtraxx/vendor_sony" path="vendor/sony" remote="github" revision="android-7.1" />
+  <!-- project name="lowtraxx/proprietary_vendor_sony" path="vendor/sony" remote="github" revision="cm-14.1" / -->
   <project name="lowtraxx/vendor_qcom_firmware" path="vendor/qcom/firmware" remote="github" revision="android-7.0" />
 
   <!-- other -->
