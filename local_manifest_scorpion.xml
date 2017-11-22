@@ -10,6 +10,10 @@
   <remove-project name="LineageOS/android_hardware_qcom_fm" />
   <remove-project name="LineageOS/android_hardware_qcom_media" />
   <remove-project name="LineageOS/android_packages_apps_FMRadio" />
+  <remove-project name="LineageOS/android_packages_apps_Calendar" />
+  <remove-project name="LineageOS/android_packages_apps_Contacts" />
+  <remove-project name="LineageOS/android_packages_apps_Dialer" />
+  <remove-project name="LineageOS/android_packages_apps_Messaging" />
   <!-- remove-project name="CyanogenMod/android_external_libnfc-nci" / -->
 
   <project name="lowtraxx/android_bootable_recovery" path="bootable/recovery" remote="github" revision="cm-14.1" />
@@ -21,14 +25,14 @@
   <!-- shinano -->
   <project name="lowtraxx/android_device_sony_scorpion-windy" path="device/sony/scorpion_windy" remote="github" revision="cm-14.1" />
   <project name="lowtraxx/android_device_sony_scorpion" path="device/sony/scorpion" remote="github" revision="cm-14.1" />
-  <project name="lowtraxx/device-sony-shinano" path="device/sony/shinano" remote="github" revision="cm-14.1" /> 
-  
+  <project name="lowtraxx/device-sony-shinano" path="device/sony/shinano" remote="github" revision="cm-14.1" />
+
   <!-- sony sepolicy -->
   <!-- project name="sonyxperiadev/device-sony-sepolicy" path="device/sony/sepolicy" remote="github" revision="n-mr0" / -->
   <project name="lowtraxx/device-sony-sepolicy" path="device/sony/sepolicy" remote="github" revision="cm-14.1" />
   <!-- project name="SonyLOS/android_device_sony_sepolicy" path="device/sony/sepolicy" remote="github" revision="cm-14.1" / -->
   <!-- project name="sonyxperiadev/device-sony-sepolicy" path="device/sony/sepolicy" remote="github" revision="n-mr0" / -->
-  
+
   <!-- kernel 3.10 -->
   <project name="lowtraxx/kernel" path="kernel/sony/msm" remote="github" revision="android-7.1" />
 
@@ -47,7 +51,7 @@
   <project name="sonyxperiadev/device-sony-common-init" path="hardware/sony/init" remote="github" revision="master" />
   <project name="sonyxperiadev/vendor-qcom-opensource-dataservices" path="hardware/sony/dataservices" remote="github" revision="master" />
   <!-- project name="lowtraxx/vendor-sony-audio" path="vendor/sony/audio" remote="github" revision="android-7.1" / -->
-  
+
   <!-- vendor -->
   <project name="lowtraxx/vendor_nxp" path="vendor/nxp" remote="github" revision="android-7.1" />
   <project name="lowtraxx/vendor_qcom" path="vendor/qcom" remote="github" revision="android-7.1" />
