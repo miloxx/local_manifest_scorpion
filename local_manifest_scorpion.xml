@@ -11,49 +11,39 @@
   <remove-project name="LineageOS/android_hardware_qcom_media" />
   <remove-project name="LineageOS/android_packages_apps_FMRadio" />
   <!-- remove-project name="CyanogenMod/android_external_libnfc-nci" / -->
-
-  <project name="lowtraxx/android_bootable_recovery" path="bootable/recovery" remote="github" revision="cm-14.1" />
-  <project name="sonyxperiadev/packages-apps-FMRadio" path="packages/apps/FMRadio" remote="github" revision="master" />
-
   <!-- common -->
   <project name="lowtraxx/device-sony-common" path="device/sony/common" remote="github" revision="cm-14.1" />
 
   <!-- shinano -->
-  <project name="lowtraxx/android_device_sony_scorpion-windy" path="device/sony/scorpion_windy" remote="github" revision="cm-14.1" />
-  <project name="lowtraxx/android_device_sony_scorpion" path="device/sony/scorpion" remote="github" revision="cm-14.1" />
-  <project name="lowtraxx/device-sony-shinano" path="device/sony/shinano" remote="github" revision="cm-14.1" /> 
-  
+  <project name="koron393/android_device_sony_scorpion_windy" path="device/sony/scorpion_windy" remote="github" revision="o8.0" />
+  <project name="lowtraxx/device-sony-shinano" path="device/sony/shinano" remote="github" revision="master" />
+  <project name="koron393/android_device_sony_shinano-common" path="device/sony/shinano-common" remote="github" revision="o8.0" />
+  <project name="koron393/device_sony_scorpion_windy" path="device/sony/scorpion_windy" remote="github" revision="o8.0" />
   <!-- sony sepolicy -->
   <!-- project name="sonyxperiadev/device-sony-sepolicy" path="device/sony/sepolicy" remote="github" revision="n-mr0" / -->
-  <project name="lowtraxx/device-sony-sepolicy" path="device/sony/sepolicy" remote="github" revision="cm-14.1" />
+  <project name="koron393/device-sony-sepolicy" path="device/sony/sepolicy" remote="github" revision="o8.0" />
   <!-- project name="SonyLOS/android_device_sony_sepolicy" path="device/sony/sepolicy" remote="github" revision="cm-14.1" / -->
   <!-- project name="sonyxperiadev/device-sony-sepolicy" path="device/sony/sepolicy" remote="github" revision="n-mr0" / -->
-  
-  <!-- kernel 3.10 -->
-  <project name="lowtraxx/kernel" path="kernel/sony/msm" remote="github" revision="android-7.1" />
 
+  <!-- kernel 3.10 -->
+  <project name="koron393/android_kernel_sony_msm8974" path="kernel/sony/msm" remote="github" revision="o8.0-offload" />
+  <project name="koron393/android_device_sony_msm8974-common" path="device/sony/msm8974-common" remote="github" revision="o8.0" />
   <!-- qcom hardware -->
-  <project name="SonyLOS/android_hardware_qcom_audio" path="hardware/qcom/audio/default" remote="github" revision="cm-14.1" />
   <project name="lowtraxx/platform_hardware_qcom_display" path="hardware/qcom/display" remote="github" revision="cm-14.1" />
   <project name="sonyxperiadev/vendor-qcom-opensource-fm" path="hardware/qcom/fm" remote="github" revision="master" />
   <project name="sonyxperiadev/vendor-qcom-opensource-location" path="hardware/qcom/location" remote="github" revision="master" />
-  <project name="SonyCM/android_hardware_qcom_media" path="hardware/qcom/media" remote="github" revision="cm-14.1" />
 
   <!-- sony hardware -->
-  <project name="lowtraxx/android_hardware_sony_camera" path="hardware/sony/camera" remote="github" revision="cm-14.1" />
   <project name="sonyxperiadev/thermanager" path="hardware/sony/thermanager" remote="github" revision="master" />
   <project name="sonyxperiadev/timekeep" path="hardware/sony/timekeep" remote="github" revision="master" />
   <project name="sonyxperiadev/macaddrsetup" path="hardware/sony/macaddrsetup" remote="github" revision="master" />
   <project name="sonyxperiadev/device-sony-common-init" path="hardware/sony/init" remote="github" revision="master" />
   <project name="sonyxperiadev/vendor-qcom-opensource-dataservices" path="hardware/sony/dataservices" remote="github" revision="master" />
   <!-- project name="lowtraxx/vendor-sony-audio" path="vendor/sony/audio" remote="github" revision="android-7.1" / -->
-  
+
   <!-- vendor -->
-  <project name="lowtraxx/vendor_nxp" path="vendor/nxp" remote="github" revision="android-7.1" />
-  <project name="lowtraxx/vendor_qcom" path="vendor/qcom" remote="github" revision="android-7.1" />
-  <project name="lowtraxx/vendor_sony" path="vendor/sony" remote="github" revision="android-7.1" />
+  <project name="koron393/proprietary_vendor_sony" path="vendor/sony" remote="github" revision="o8.0" />
   <!-- project name="lowtraxx/proprietary_vendor_sony" path="vendor/sony" remote="github" revision="cm-14.1" / -->
-  <project name="lowtraxx/vendor_qcom_firmware" path="vendor/qcom/firmware" remote="github" revision="android-7.0" />
 
   <!-- other -->
   <!-- project path="external/libnfc-nci" name="lowtraxx/platform_external_libnfc-nci" groups="pdk" remote="github" revision="android-7.1" / -->
