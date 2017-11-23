@@ -11,9 +11,6 @@
   <remove-project name="LineageOS/android_hardware_qcom_media" />
   <remove-project name="LineageOS/android_packages_apps_FMRadio" />
   <remove-project name="LineageOS/android_packages_apps_Calendar" />
-  <remove-project name="LineageOS/android_packages_apps_Contacts" />
-  <remove-project name="LineageOS/android_packages_apps_Dialer" />
-  <remove-project name="LineageOS/android_packages_apps_Messaging" />
   <!-- remove-project name="CyanogenMod/android_external_libnfc-nci" / -->
 
   <project name="lowtraxx/android_bootable_recovery" path="bootable/recovery" remote="github" revision="cm-14.1" />
