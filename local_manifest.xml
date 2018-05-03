@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+          <!-- koron393 repo -->
+  <remote  name="koron393"
+           fetch="https://github.com/koron393/" />
+
+           <!-- lowtraxx repo -->
+  <remote  name="lowtraxx"
+           fetch="https://github.com/lowtraxx/" />
+
+  <!-- sony kernel -->
+  <project name="koron393/android_kernel_sony_msm8974" path="kernel/sony/msm" remote="github" revision="o8.1" />
+  <project name="koron393/android_device_sony_msm8974-common" path="kernel/sony/msm8974-common" remote="github" revision="o8.1" />
+
+  <!-- shinano -->
+  <project name="koron393/android_device_sony_scorpion-windy" path="device/sony/scorpion_windy" remote="github" revision="o8.0" />
+  <project name="koron393/android_device_sony_shinano-common" path="device/sony/shinano-common" remote="github" revision="o8.0" />
+
+  <!-- sony sepolicy -->
+  <project name="koron393/device-sony-sepolicy" path="device/sony/sepolicy" remote="github" revision="o8.0" />
+
+  <!-- vendor -->
+  <project name="koron393/proprietary_vendor_sony" path="vendor/sony" remote="github" revision="o8.0" />
+
+  <!-- remove not needed packages -->
+  <remove-project name="device/google/wahoo" />
+  <remove-project name="device/google/wahoo-kernel" />
+  <remove-project name="device/huawei/angler" />
+  <remove-project name="device/huawei/angler-kernel" />
+  <remove-project name="device/lge/bullhead" />
+  <remove-project name="device/lge/bullhead-kernel" />
+  <remove-project name="device/google/dragon" />
+  <remove-project name="device/google/dragon-kernel" />
+  <remove-project name="device/google/marlin" />
+  <remove-project name="device/google/marlin-kernel" />
+  <remove-project name="device/google/muskie" />
+  <remove-project name="device/google/taimen" />
+  <remove-project name="device/asus/fugu" />
+  <remove-project name="device/asus/fugu-kernel" />
+  <remove-project name="device/generic/mini-emulator-arm64" />
+  <remove-project name="device/generic/mini-emulator-armv7-a-neon" />
+  <remove-project name="device/generic/mini-emulator-mips" />
+  <remove-project name="device/generic/mini-emulator-mips64" />
+  <remove-project name="device/generic/mini-emulator-x86" />
+  <remove-project name="device/generic/mini-emulator-x86_64" />
+  <remove-project name="platform/packages/apps/Browser2" />
+  <remove-project name="platform/packages/apps/Contacts" />
+  <remove-project name="platform/packages/apps/Camera2" />
+  <remove-project name="platform/packages/apps/Dialer" />
+</manifest>
