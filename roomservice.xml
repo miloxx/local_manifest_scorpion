@@ -13,7 +13,7 @@
   <project name="koron393/android_device_sony_msm8974-common" path="kernel/sony/msm8974-common" remote="github" revision="o8.1" />
 
   <!-- shinano -->
-  <project name="koron393/android_device_sony_scorpion-windy" path="device/sony/scorpion_windy" remote="github" revision="o8.0" />
+  <project name="koron393/android_device_sony_scorpion_windy" path="device/sony/scorpion_windy" remote="github" revision="o8.0" />
   <project name="koron393/android_device_sony_shinano-common" path="device/sony/shinano-common" remote="github" revision="o8.0" />
 
   <!-- sony sepolicy -->
