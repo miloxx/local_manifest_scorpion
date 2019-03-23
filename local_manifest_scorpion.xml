@@ -5,10 +5,8 @@
   <!-- CM stuff -->
 
   <remove-project name="LineageOS/android_bootable_recovery" />
-  <remove-project name="LineageOS/android_hardware_qcom_audio" />
   <remove-project name="LineageOS/android_hardware_qcom_display" />
   <remove-project name="LineageOS/android_hardware_qcom_fm" />
-  <remove-project name="LineageOS/android_hardware_qcom_media" />
   <remove-project name="LineageOS/android_packages_apps_FMRadio" />
   <!-- remove-project name="CyanogenMod/android_external_libnfc-nci" / -->
 
@@ -33,11 +31,11 @@
   <project name="lowtraxx/kernel" path="kernel/sony/msm" remote="github" revision="android-7.1" />
 
   <!-- qcom hardware -->
-  <project name="SonyLOS/android_hardware_qcom_audio" path="hardware/qcom/audio/default" remote="github" revision="cm-14.1" />
+  <project name="LineageOS/android_hardware_qcom_audio" path="hardware/qcom/audio/default" remote="github" revision="cm-14.1" />
   <project name="lowtraxx/platform_hardware_qcom_display" path="hardware/qcom/display" remote="github" revision="cm-14.1" />
   <project name="sonyxperiadev/vendor-qcom-opensource-fm" path="hardware/qcom/fm" remote="github" revision="master" />
   <project name="sonyxperiadev/vendor-qcom-opensource-location" path="hardware/qcom/location" remote="github" revision="master" />
-  <project name="SonyCM/android_hardware_qcom_media" path="hardware/qcom/media" remote="github" revision="cm-14.1" />
+  <project name="LineageOS/android_hardware_qcom_media" path="hardware/qcom/media" remote="github" revision="cm-14.1" />
 
   <!-- sony hardware -->
   <project name="lowtraxx/android_hardware_sony_camera" path="hardware/sony/camera" remote="github" revision="cm-14.1" />
